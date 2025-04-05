@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Arm-Simulation.sln"
+    "dotnet.defaultSolution": "unity-arm.sln"
 }

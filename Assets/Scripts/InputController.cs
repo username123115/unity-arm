@@ -22,6 +22,8 @@ public class InputController : MonoBehaviour
     {
         myArm.StopJoints();
         for (int i = 0; i < myArm.Joints.Length; i++) {
+            bool direct = false;
+
             Joint j = myArm.Joints[i];
             float v;
             if (j.arduinoOverride == 0) {
@@ -29,22 +31,30 @@ public class InputController : MonoBehaviour
                 v = action.ReadValue<float>();
             } else {
                 v = arduinoManager.entries[j.arduinoOverride - 1];
+                if (j.directDegree != 0) {
+                    direct = true;
+                }
             }
             //Input registered?
-            if (Math.Abs(v) >= 0.0001) {
-                if (debugPrint) {
-                    Debug.Log(v);
-                }
-                myArm.StopJoints();
-                RotationDirection dir;
-                if (v < 0) {
-                    dir = RotationDirection.Negative;
+            if (!direct) {
+                if (Math.Abs(v) >= 0.0001) {
+                    if (debugPrint) {
+                        Debug.Log(v);
+                    }
+                    myArm.StopJoints();
+                    RotationDirection dir;
+                    if (v < 0) {
+                        dir = RotationDirection.Negative;
+                    } else {
+                        dir = RotationDirection.Positive;
+                    }
+                    myArm.SetJointDirection(dir, i);
                 } else {
-                    dir = RotationDirection.Positive;
+                    //myArm.StopJoint(i);
                 }
-                myArm.SetJointDirection(dir, i);
             } else {
-                //myArm.StopJoint(i);
+                myArm.StopJoints();
+                myArm.SetJointPositionD(v, i);
             }
         }
         
@@ -67,3 +77,4 @@ public class InputController : MonoBehaviour
         }
     }
 }
+// yeah

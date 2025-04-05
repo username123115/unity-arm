@@ -7,10 +7,10 @@ using UnityEngine;
 
 public class ArduinoManager : MonoBehaviour
 {
-    public const int numEntries = 3;
-    public int[] entries = new int[numEntries];
-    public string portName = "/dev/ttyUSB0";
-    public int baudRate = 9600;
+    public const int numEntries = 2;
+    public float[] entries = new float[numEntries];
+    public string portName = "/dev/ttyACM0";
+    public int baudRate = 115200;
     private SerialPort serialPort;
     // Start is called before the first frame update
     void Start()
@@ -34,7 +34,7 @@ public class ArduinoManager : MonoBehaviour
             string data = serialPort.ReadLine();
             string[] values = data.Split(",");
             for (int i = 0; i < numEntries; i++) {
-                int result = int.Parse(values[i].Trim());
+                float result = float.Parse(values[i].Trim());
                 entries[i] = result;
             }
             Debug.Log($"Serial: {data}");

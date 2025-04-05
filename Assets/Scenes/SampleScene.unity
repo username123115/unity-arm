@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571328, b: 0.3069218, a: 1}
+  m_IndirectSpecularColor: {r: 0.18029124, g: 0.22572401, b: 0.3069303, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1599,6 +1599,7 @@ MonoBehaviour:
         m_Flags: 8
       m_Flags: 0
     arduinoOverride: 0
+    directDegree: 0
   - obj: {fileID: 565239964}
     action:
       m_Name: Action
@@ -1633,7 +1634,8 @@ MonoBehaviour:
         m_Action: Action
         m_Flags: 8
       m_Flags: 0
-    arduinoOverride: 0
+    arduinoOverride: 1
+    directDegree: 1
   - obj: {fileID: 1245843123}
     action:
       m_Name: Action
@@ -1669,6 +1671,7 @@ MonoBehaviour:
         m_Flags: 8
       m_Flags: 0
     arduinoOverride: 0
+    directDegree: 0
   - obj: {fileID: 718049730}
     action:
       m_Name: Action
@@ -1704,6 +1707,7 @@ MonoBehaviour:
         m_Flags: 8
       m_Flags: 0
     arduinoOverride: 0
+    directDegree: 0
   - obj: {fileID: 76779593}
     action:
       m_Name: Action
@@ -1739,6 +1743,7 @@ MonoBehaviour:
         m_Flags: 8
       m_Flags: 0
     arduinoOverride: 0
+    directDegree: 0
   - obj: {fileID: 1920909481}
     action:
       m_Name: Action
@@ -1774,6 +1779,7 @@ MonoBehaviour:
         m_Flags: 8
       m_Flags: 0
     arduinoOverride: 0
+    directDegree: 0
   debugTestJoints: 0
   debugJointsToTest: 
   debugChange: 1
@@ -4350,9 +4356,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b134012fc7fe0fd4b86bfc8799f3ba0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entries: 000000000000000000000000
-  portName: /dev/ttyUSB0
-  baudRate: 9600
+  entries:
+  - 0
+  - 0
+  portName: /dev/ttyACM0
+  baudRate: 115200
 --- !u!4 &1626154543
 Transform:
   m_ObjectHideFlags: 0

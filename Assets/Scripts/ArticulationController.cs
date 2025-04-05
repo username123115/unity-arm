@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //steal from reference implementation
-public enum RotationDirection { None = 0, Positive = 1, Negative = -1 };
+public enum RotationDirection { None = 0, Positive = 1, Negative = -1, Controlled = 2};
 
 public abstract class PartController : MonoBehaviour
 {
@@ -75,12 +75,14 @@ public class ArticulationController : PartController
     
     void FixedUpdate()
     {
-        float change = Time.deltaTime * speed * (float) direction;
-        float current = GetPositionD();
-        if (debugPrint) {
-            Debug.Log("My position is: " + current + ". Change is " + change);
+        if (direction != RotationDirection.Controlled) {
+            float change = Time.deltaTime * speed * (float) direction;
+            float current = GetPositionD();
+            if (debugPrint) {
+                Debug.Log("My position is: " + current + ". Change is " + change);
+            }
+            AddPositionD(change);
         }
-        AddPositionD(change);
         
     }
 }

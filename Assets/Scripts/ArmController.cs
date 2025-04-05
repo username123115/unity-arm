@@ -10,6 +10,7 @@ public struct Joint {
     // Armcontroller will hold the actions each arm part is assigned but the Input Controller is responsible for activating and deactivating them
     public InputAction action;
     public int arduinoOverride;
+    public int directDegree;
 }
 public class ArmController : MonoBehaviour
 {
@@ -37,6 +38,24 @@ public class ArmController : MonoBehaviour
         }
     }
     
+    public RotationDirection GetJointDirection(int index) {
+        if ((0 <= index) && (index < Joints.Length)) {
+            GameObject part = Joints[index].obj;
+            PartController myController = part.GetComponent<PartController>();
+            return myController.direction;
+        }
+        return RotationDirection.None;
+    }
+    
+    public void SetJointPositionD(float angle, int index) {
+        GameObject part = Joints[index].obj;
+        PartController controller = part.GetComponent<PartController>();
+
+        controller.SetPositionD(angle);
+        SetJointDirection(RotationDirection.Controlled, index);
+
+    }
+    
     public void StopJoint(int index) {
         SetJointDirection(RotationDirection.None, index);
     }
@@ -45,7 +64,9 @@ public class ArmController : MonoBehaviour
         for (int i = 0; i < Joints.Length; i++) {
             //If we aren't debugging or a specific joint isn't being debugged, then stop that joint
             if ((!debugTestJoints) || (!debugJointsToTest.Contains(i))) {
-                SetJointDirection(RotationDirection.None, i);
+                if (GetJointDirection(i) != RotationDirection.Controlled) {
+                    SetJointDirection(RotationDirection.None, i);
+                }
             }
         }
 
