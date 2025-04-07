@@ -355,6 +355,7 @@
 "Assets/Scripts/ArticulationController.cs"
 "Assets/Scripts/FingerController.cs"
 "Assets/Scripts/InputController.cs"
+"Assets/Scripts/TestManager.cs"
 -langversion:9.0
 /deterministic
 /optimize+

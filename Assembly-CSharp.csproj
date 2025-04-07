@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Assets/Scripts/FingerController.cs" />
     <Compile Include="Assets/Scripts/ArmController.cs" />
+    <Compile Include="Assets/Scripts/TestManager.cs" />
     <Compile Include="Assets/Scripts/ArduinoManager.cs" />
     <Compile Include="Assets/Scripts/InputController.cs" />
     <Compile Include="Assets/Scripts/ArticulationController.cs" />
