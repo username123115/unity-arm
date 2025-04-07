@@ -68,6 +68,7 @@
     <Compile Include="Assets/Scripts/ArmController.cs" />
     <Compile Include="Assets/Scripts/TestManager.cs" />
     <Compile Include="Assets/Scripts/ArduinoManager.cs" />
+    <Compile Include="Assets/Scripts/WinZone.cs" />
     <Compile Include="Assets/Scripts/InputController.cs" />
     <Compile Include="Assets/Scripts/ArticulationController.cs" />
   </ItemGroup>

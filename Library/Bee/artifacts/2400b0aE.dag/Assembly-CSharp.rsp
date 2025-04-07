@@ -356,6 +356,7 @@
 "Assets/Scripts/FingerController.cs"
 "Assets/Scripts/InputController.cs"
 "Assets/Scripts/TestManager.cs"
+"Assets/Scripts/WinZone.cs"
 -langversion:9.0
 /deterministic
 /optimize+
