@@ -86,3 +86,6 @@ public class ArticulationController : PartController
         
     }
 }
+
+
+//TODO: direction instead of 
