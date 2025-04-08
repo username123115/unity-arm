@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class ArduinoManager : MonoBehaviour
 {
-    public const int numEntries = 4;
+    public const int numEntries = 7;
 
     public float[] entries = new float[numEntries];
     public string portName = "/dev/ttyACM0";

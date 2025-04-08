@@ -28,6 +28,9 @@ public class TestManager : MonoBehaviour
     
     public List<float> distances = new List<float>();
     public List<float> heights = new List<float>();
+    public List<float> accX = new List<float>();
+    public List<float> accY = new List<float>();
+    public List<float> accZ = new List<float>();
     
     bool written;
     void Start()
@@ -101,7 +104,7 @@ public class TestManager : MonoBehaviour
             for (int i = 0; i < distances.Count; i++) {
                 float distance = distances[i];
                 float height = heights[i];
-                string line = $"{distance}, {height}, ";
+                string line = $"{distance}, {height}, {accX[i]}, {accY[i]}, {accZ[i]}";
                 file.WriteLine(line);
             }
         }
@@ -116,5 +119,8 @@ public class TestManager : MonoBehaviour
         distances.Add(d);
         float h = markerBlock.transform.position.y - blockOffset;
         heights.Add(h);
+        accX.Add(arduino.entries[4]);
+        accY.Add(arduino.entries[5]);
+        accZ.Add(arduino.entries[6]);
     }
 }
